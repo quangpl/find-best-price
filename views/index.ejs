@@ -23,7 +23,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <link rel="stylesheet" type="text/css" href="css/util.css" />
-view raw
+ 
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -109,13 +109,13 @@ view raw
 				<div class="row">
 					<div class="col-md-12 search-wrap">
 						<div class="search-wrap-2">
-							<form method="post" class="colorlib-form">
+							<form method="post" class="colorlib-form" action="/">
 			              	<div class="row">
 			                <div class="col-md-4">
 			                  <div class="form-group">
 			                    <!-- <label for="search">Search Course</label> -->
 			                    <div class="form-field">
-			                      <input type="text" id="from" class="form-control" placeholder="Enter start date">
+			                      <input type="text" id="from" name="from" class="form-control" placeholder="Enter start date">
 			                    </div>
 			                  </div>
                       </div>
@@ -123,14 +123,14 @@ view raw
 			                  <div class="form-group">
 			                    <!-- <label for="search">Search Course</label> -->
 			                    <div class="form-field">
-			                      <input type="text" id="to" class="form-control" placeholder="Enter end date">
+			                      <input type="text" id="to" name="to" class="form-control" placeholder="Enter end date">
 			                    </div>
 			                  </div>
 			                </div>
 			               
 			                
 			                <div class="col-md-4">
-			                  <input type="submit" name="submit" id="submit" value="Tìm deal ngon" class="btn btn-primary btn-block">
+			                  <input type="submit" name="submit" id="submit-btn" value="Tìm deal ngon" class="btn btn-primary btn-block">
 			                </div>
 			              </div>
 			            </form>
@@ -140,6 +140,10 @@ view raw
 			</div>
 		</div>
    <!-- Table -->
+  <% if(data) {%>}
+   <div id="colorlib-services">
+			<div class="container">
+				<div class="row">
    <div class="limiter">
       <div class="container-table100">
         <div class="wrap-table100">
@@ -156,118 +160,19 @@ view raw
                 </tr>
               </thead>
               <tbody>
+                <% data.forEach((e)=>{%>
                   <tr>
-                    <td class="column1">2017-09-29 01:22</td>
-                    <td class="column2">200398</td>
-                    <td class="column3">iPhone X 64Gb Grey</td>
-                    <td class="column4">$999.00</td>
-                    <td class="column6">1</td>
+                    <td class="column1"><%=e.product.name%></td>
+                    <td class="column2"><%=e.product.price%></td>
+                    <td class="column3"><%=e.product.list_price%></td>
+                    <td class="column4"><%=e.discount_percent%></td>
+                    <td class="column6"><i class="icon icon-cart"></i> <a href="https://tiki.vn/<%=e.product.url_path%>">Go</a></td>
                     
                   </tr>
-                  <tr>
-                    <td class="column1">2017-09-28 05:57</td>
-                    <td class="column2">200397</td>
-                    <td class="column3">Samsung S8 Black</td>
-                    <td class="column4">$756.00</td>
-                    <td class="column6">1</td>
-                
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-26 05:57</td>
-                    <td class="column2">200396</td>
-                    <td class="column3">Game Console Controller</td>
-                    <td class="column4">$22.00</td>
-                    <td class="column6">2</td>
-                  
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-25 23:06</td>
-                    <td class="column2">200392</td>
-                    <td class="column3">USB 3.0 Cable</td>
-                    <td class="column4">$10.00</td>
-                    <td class="column6">3</td>
-                  
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-24 05:57</td>
-                    <td class="column2">200391</td>
-                    <td class="column3">Smartwatch 4.0 LTE Wifi</td>
-                    <td class="column4">$199.00</td>
-                    <td class="column6">6</td>
-                    
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-23 05:57</td>
-                    <td class="column2">200390</td>
-                    <td class="column3">Camera C430W 4k</td>
-                    <td class="column4">$699.00</td>
-                    <td class="column6">1</td>
-                  
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-22 05:57</td>
-                    <td class="column2">200389</td>
-                    <td class="column3">Macbook Pro Retina 2017</td>
-                    <td class="column4">$2199.00</td>
-                    <td class="column6">1</td>
-                  
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-21 05:57</td>
-                    <td class="column2">200388</td>
-                    <td class="column3">Game Console Controller</td>
-                    <td class="column4">$999.00</td>
-                    <td class="column6">1</td>
+                  <%});%>
                  
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-19 05:57</td>
-                    <td class="column2">200387</td>
-                    <td class="column3">iPhone X 64Gb Grey</td>
-                    <td class="column4">$999.00</td>
-                    <td class="column6">1</td>
-                   
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-18 05:57</td>
-                    <td class="column2">200386</td>
-                    <td class="column3">iPhone X 64Gb Grey</td>
-                    <td class="column4">$999.00</td>
-                    <td class="column6">1</td>
-                  
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-22 05:57</td>
-                    <td class="column2">200389</td>
-                    <td class="column3">Macbook Pro Retina 2017</td>
-                    <td class="column4">$2199.00</td>
-                    <td class="column6">1</td>
-                  
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-21 05:57</td>
-                    <td class="column2">200388</td>
-                    <td class="column3">Game Console Controller</td>
-                    <td class="column4">$999.00</td>
-                    <td class="column6">1</td>
-                  
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-19 05:57</td>
-                    <td class="column2">200387</td>
-                    <td class="column3">iPhone X 64Gb Grey</td>
-                    <td class="column4">$999.00</td>
-                    <td class="column6">1</td>
-                  
-                  </tr>
-                  <tr>
-                    <td class="column1">2017-09-18 05:57</td>
-                    <td class="column2">200386</td>
-                    <td class="column3">iPhone X 64Gb Grey</td>
-                    <td class="column4">$999.00</td>
-                    <td class="column6">1</td>
-                  
-                  </tr>
+            
+                
                   
               </tbody>
             </table>
@@ -275,6 +180,7 @@ view raw
         </div>
       </div>
     </div>
+<% } %>
 		<div id="colorlib-counter" class="colorlib-counters">
 			<div class="container">
 				<div class="col-md-7">
@@ -331,6 +237,9 @@ view raw
 				</div>
 			</div>
 		</div>
+</div>
+</div>
+</div>
 
 
 		<footer id="colorlib-footer">
@@ -389,7 +298,7 @@ $(function() {
   $('input[id="to"]').daterangepicker({
     singleDatePicker: true,
     showDropdowns: true,
-    minYear: 1901
+    minYear: 1999
   });
 });
 </script>
