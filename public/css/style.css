@@ -1369,7 +1369,7 @@ input[type="text"] {
     position: relative;
     padding: 0;
     padding-left: 80px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     background: transparent; }
     #colorlib-footer .f-blog .blog-img {
       position: absolute;
@@ -1847,7 +1847,8 @@ input[type="text"] {
   height: 42px;
 }
 .btn-pay{
- 
+ margin-left:15px;
+ float :right;
 }
 .btn-load{
 margin:0 auto;
@@ -1897,7 +1898,7 @@ margin:0 auto;
 }
 .btn-load-more{
   
-  margin-top:50px;
+  margin-top:25px;
  
 }
 .warning{

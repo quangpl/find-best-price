@@ -5,20 +5,20 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>CuliPrice -  Công cụ tìm giá sản phẩm rẻ nhất</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
+	<meta name="description" content="Culi Price - Công cụ săn sản phẩm tiki đang giảm giá mạnh nhất." />
+	<meta name="keywords" content="săn deal, săn gía tiki, săn sản phẩm tiki, hot deal tiki, giảm giá tiki" />
+ 
 
   <!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<meta property="og:title" content="Culi Price - Công cụ săn sản phẩm tiki đang giảm giá mạnh nhất."/>
+	<meta property="og:image" content="https://i.imgur.com/5PWMaMM.png"/>
+	<meta property="og:url" content="https://tietkiem.herokuapp.com/"/>
+	<meta property="og:site_name" content="Culi Price - Công cụ săn sản phẩm tiki đang giảm giá mạnh nhất."/>
+	<meta property="og:description" content="săn deal, săn gía tiki, săn sản phẩm tiki, hot deal tiki, giảm giá tiki"/>
+	<meta name="twitter:title" content="Culi Price - Công cụ săn sản phẩm tiki đang giảm giá mạnh nhất." />
+	<meta name="twitter:image" content="https://i.imgur.com/5PWMaMM.png" />
+	<meta name="twitter:url" content="https://tietkiem.herokuapp.com/" />
+	 
 	<link rel="shortcut icon" type="image/png" href="images/cart.png"/>
 <script>function priceToVnd(price){
 		price=price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
@@ -73,13 +73,13 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-2">
-							<div id="colorlib-logo"><a href="index.html">Culi-Price</a></div>
+							<div id="colorlib-logo"><a href="/">Culi-Price</a></div>
 						</div>
 						<div class="col-md-10 text-right menu-1">
 							<ul>
-								<li class="active"><a href="index.html">Home</a></li>
-								<li><a href="contact.html">Liên hệ</a></li>
-								<li class="btn-cta"><a href="#"><span>Facebook</span></a></li>
+								<li class="active"><a href="/">Home</a></li>
+								<li><a href="mailto:phanlequang99@gmail.com">Liên hệ</a></li>
+								
 							</ul>
 						</div>
 					</div>
@@ -116,36 +116,56 @@
 				<div class="row">
 					<div class="col-md-12 search-wrap">
 						<div class="search-wrap-2">
-							<form method="post" class="colorlib-form" action="/getList">
+							<form class="colorlib-form" method="post" action="/getList">
 			              	<div class="row">
-			                <div class="col-md-4">
+			                <div class="col-md-3">
 			                  <div class="form-group">
 			                    <!-- <label for="search">Search Course</label> -->
 			                    <div class="form-field">
+									 
 			                      <input type="text" id="from" name="from" class="form-control" placeholder="Chọn ngày bắt đầu">
 			                    </div>
 			                  </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-3">
 			                  <div class="form-group">
 			                    <!-- <label for="search">Search Course</label> -->
 			                    <div class="form-field">
+								 
 			                      <input type="text" id="to" name="to" class="form-control" placeholder="Chọn ngày kết thúc">
 			                    </div>
 			                  </div>
 											</div>
 										
-			                
-			                <div class="col-md-4">
-			                  <button type="submit" name="submit" id="submit-btn" class="btn btn-primary btn-block"><i class="fas fa-search"></i> Tìm deal ngon</button>
-			                </div>
+											<div class="col-md-3">
+													<div class="form-group">
+													  <!-- <label for="course">Category Course</label> -->
+													  <div class="form-field">
+														<i class="icon icon-arrow-down3"></i>
+														<select name="count" id="count" class="form-control">
+														  <option value="20">20</option>
+														  <option value="50">50</option>
+														  <option value="100">100</option>
+														  <option value="200">200</option>
+														  
+														</select>
+													  </div>
+													</div>
+												  </div>
+			                <div class="col-md-3">
+								 
+			                  <button id="find-buttom" class="btn btn-primary btn-block"><i class="fas fa-search"></i> Tìm deal ngon</button>
+							</div>
+							
 			              </div>
 									</form>
 								
 								</div>
-								<div class="alert alert-danger warning" role="alert">
-										<i class="fas fa-exclamation-circle"></i> Lỗi : 
-									</div>
+								<%if(error){%>
+									<div class="alert alert-danger warning" role="alert">
+											<i class="fas fa-exclamation-circle"></i> Lỗi : <%=error%>
+										</div>
+										<%}%>
 					</div>
 				</div>
 			</div>
@@ -156,11 +176,11 @@
 <%if(data){ %>
 	<%data.forEach(e=>{%>
 <div id="item" class="row">
-		<div class="col-md-1 col-xs-4 col-sm-2"><img class="img-thumb" src="<%=e.product.thumbnail_url%>"/></div>
-		<div class="col-md-11  col-xs-8 col-sm-10">
+		<div class="col-md-1 col-xs-3 col-sm-2"><img class="img-thumb" src="<%=e.product.thumbnail_url%>"/></div>
+		<div class="col-md-11  col-xs-9 col-sm-10">
 				<div class="info">
 			<div class="row"><p class="title"><img class="icon-brand" src="images/icon.png"/><a href="https://tiki.vn/<%=e.product.url_path%>" target="_blank"><%=e.product.name%></a><span class="price-sale"> <script>document.write(priceToVnd(<%=e.product.price%>));</script></span></p> </div>
-			<div class="row"><span class="price-stock"><s><script>document.write(priceToVnd(<%=e.product.list_price%>));console.log(priceToVnd(<%=e.product.list_price%>));</script></s> <span class="price-down">-<%=e.discount_percent%>%</span><a href="https://tiki.vn/<%=e.product.url_path%>" target="_blank"><button type="button" class="btn btn-primary btn-pay"><i class="fas fa-shopping-cart"></i> Mua ngay</button></a></span></div>
+			<div class="row"><span class="price-stock"><s><script>document.write(priceToVnd(<%=e.product.list_price%>));</script></s> <span class="price-down">-<%=e.discount_percent%>%</span><a href="https://tiki.vn/<%=e.product.url_path%>" target="_blank"><button type="button" class="btn btn-primary btn-pay"><i class="fas fa-shopping-cart"></i> Mua</button></a></span></div>
 		 
 			</div>
 			
@@ -170,7 +190,7 @@
 <% }) %>
 <%}%>
  
-<div class="text-center"><button class="btn btn-primary btn-sx btn-load-more" type="button"> <i class="fas fa-chevron-circle-down"></i> Xem thêm</button></div>
+
  
 </div>
 </div>
@@ -259,6 +279,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/jquery.countTo.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	<script src="js/get.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
