@@ -20,7 +20,10 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 	<link rel="shortcut icon" type="image/png" href="images/cart.png"/>
-
+<script>function priceToVnd(price){
+		price=price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
+		return price;
+		}</script>
 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -148,7 +151,7 @@
 			</div>
 		</div>
   
-<div id="colorlib-counter" class="colorlib-counters">
+
 	<div id="list" class="container">
 <%if(data){ %>
 	<%data.forEach(e=>{%>
@@ -156,8 +159,8 @@
 		<div class="col-md-1 col-xs-4 col-sm-2"><img class="img-thumb" src="<%=e.product.thumbnail_url%>"/></div>
 		<div class="col-md-11  col-xs-8 col-sm-10">
 				<div class="info">
-			<div class="row"><p class="title"><img class="icon-brand" src="images/icon.png"/><a href="#"><%=e.product.name%></a><span class="price-sale">  <%=e.product.price%>đ</span></p> </div>
-			<div class="row"><span class="price-stock"><s><%=e.product.list_price%>đ</s> <span class="price-down">-<%=e.discount_percent%>%</span><a href="#"><button type="button" class="btn btn-primary btn-pay"><i class="fas fa-shopping-cart"></i> Mua ngay</button></a></span></div>
+			<div class="row"><p class="title"><img class="icon-brand" src="images/icon.png"/><a href="https://tiki.vn/<%=e.product.url_path%>" target="_blank"><%=e.product.name%></a><span class="price-sale"> <script>document.write(priceToVnd(<%=e.product.price%>));</script></span></p> </div>
+			<div class="row"><span class="price-stock"><s><script>document.write(priceToVnd(<%=e.product.list_price%>));console.log(priceToVnd(<%=e.product.list_price%>));</script></s> <span class="price-down">-<%=e.discount_percent%>%</span><a href="https://tiki.vn/<%=e.product.url_path%>" target="_blank"><button type="button" class="btn btn-primary btn-pay"><i class="fas fa-shopping-cart"></i> Mua ngay</button></a></span></div>
 		 
 			</div>
 			
@@ -172,7 +175,7 @@
 </div>
 </div>
 
-</div>
+
 		<div id="colorlib-counter" class="colorlib-counters">
 			<div class="container">
 				
@@ -274,6 +277,7 @@ $(function() {
  
   });
 });
+
 </script>
 	</body>
 </html>
