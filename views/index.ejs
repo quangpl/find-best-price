@@ -19,6 +19,7 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
+	<link rel="shortcut icon" type="image/png" href="images/cart.png"/>
 
 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
@@ -112,13 +113,13 @@
 				<div class="row">
 					<div class="col-md-12 search-wrap">
 						<div class="search-wrap-2">
-							<form method="post" class="colorlib-form" action="/">
+							<form method="post" class="colorlib-form" action="/getList">
 			              	<div class="row">
 			                <div class="col-md-4">
 			                  <div class="form-group">
 			                    <!-- <label for="search">Search Course</label> -->
 			                    <div class="form-field">
-			                      <input type="text" id="from" name="from" class="form-control" placeholder="Enter start date">
+			                      <input type="text" id="from" name="from" class="form-control" placeholder="Chọn ngày bắt đầu">
 			                    </div>
 			                  </div>
                       </div>
@@ -126,101 +127,47 @@
 			                  <div class="form-group">
 			                    <!-- <label for="search">Search Course</label> -->
 			                    <div class="form-field">
-			                      <input type="text" id="to" name="to" class="form-control" placeholder="Enter end date">
+			                      <input type="text" id="to" name="to" class="form-control" placeholder="Chọn ngày kết thúc">
 			                    </div>
 			                  </div>
 											</div>
 										
 			                
 			                <div class="col-md-4">
-			                  <input type="submit" name="submit" id="submit-btn" value="Tìm deal ngon" class="btn btn-primary btn-block">
+			                  <button type="submit" name="submit" id="submit-btn" class="btn btn-primary btn-block"><i class="fas fa-search"></i> Tìm deal ngon</button>
 			                </div>
 			              </div>
-			            </form>
-		            </div>
+									</form>
+								
+								</div>
+								<div class="alert alert-danger warning" role="alert">
+										<i class="fas fa-exclamation-circle"></i> Lỗi : 
+									</div>
 					</div>
 				</div>
 			</div>
 		</div>
-   <!-- 
-  <% if(data) {%>}
-   <div id="colorlib-services">
-			<div class="container">
-				<div class="row">
-   <div class="limiter">
-      <div class="container-table100">
-        <div class="wrap-table100">
-          <div class="table100">
-            <table>
-              <thead>
-                <tr class="table100-head">
-                  <th class="column1">Tên SP</th>
-                  <th class="column2">Giá hiện tại</th>
-                  <th class="column3">Giá gốc</th>
-                  <th class="column4">Tỉ lệ giảm</th>
-                  <th class="column6">Link SP</th>
-                  
-                </tr>
-              </thead>
-              <tbody>
-                <% data.forEach((e)=>{%>
-                  <tr>
-                    <td class="column1"><%=e.product.name%></td>
-                    <td class="column2"><%=e.product.price%></td>
-                    <td class="column3"><%=e.product.list_price%></td>
-                    <td class="column4"><%=e.discount_percent%></td>
-                    <td class="column6"><i class="icon icon-cart"></i> <a href="https://tiki.vn/<%=e.product.url_path%>">Go</a></td>
-                    
-                  </tr>
-                  <%});%>
-                 
-            
-                
-                  
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-<% } %> -->
+  
 <div id="colorlib-counter" class="colorlib-counters">
 	<div id="list" class="container">
-
-		<div id="item" class="row">
-				<div class="col-md-1 col-xs-4 col-sm-2"><img class="img-thumb" src="https://salt.tikicdn.com/cache/280x280/ts/product/e6/0c/88/528f887cfe3c6586a0636392271a938b.jpg"/></div>
-				<div class="col-md-11  col-xs-8 col-sm-10">
-						<div class="info">
-					<div class="row"><p class="title"><img class="icon-brand" src="images/icon.png"/>Máy In Laser Đơn Năng Canon LBP 2900 Chính Hãng Lê Bảo Minh <span class="price-sale">2,750,000 VNĐ </span></p> </div>
-					<div class="row"><span class="price-stock"><s>5,000,000 VNĐ</s> <span class="price-down">-55%</span><button type="button" class="btn btn-primary btn-pay"><i class="fas fa-shopping-cart"></i> Mua ngay</button></span></div>
-				 
-					</div>
-				</div>		
-	</div>
-	<div id="item" class="row">
-			<div class="col-md-1 col-xs-4 col-sm-2"><img class="img-thumb" src="https://salt.tikicdn.com/cache/280x280/ts/product/e6/0c/88/528f887cfe3c6586a0636392271a938b.jpg"/></div>
-			<div class="col-md-11  col-xs-8 col-sm-10">
-					<div class="info">
-				<div class="row"><p class="title"><img class="icon-brand" src="images/icon.png"/>Máy In Laser Đơn Năng Canon LBP 2900 Chính Hãng Lê Bảo Minh <span class="price-sale">2,750,000 VNĐ </span></p> </div>
-				<div class="row"><span class="price-stock"><s>5,000,000 VNĐ</s> <span class="price-down">-55%</span><button type="button" class="btn btn-primary btn-pay"><i class="fas fa-shopping-cart"></i> Mua ngay</button></span></div>
-			 
-				</div>
-			</div>		
-</div>
+<%if(data){ %>
+	<%data.forEach(e=>{%>
 <div id="item" class="row">
-		<div class="col-md-1 col-xs-4 col-sm-2"><img class="img-thumb" src="https://salt.tikicdn.com/cache/280x280/ts/product/e6/0c/88/528f887cfe3c6586a0636392271a938b.jpg"/></div>
+		<div class="col-md-1 col-xs-4 col-sm-2"><img class="img-thumb" src="<%=e.product.thumbnail_url%>"/></div>
 		<div class="col-md-11  col-xs-8 col-sm-10">
 				<div class="info">
-			<div class="row"><p class="title"><img class="icon-brand" src="images/icon.png"/>Máy In Laser Đơn Năng Canon LBP 2900 Chính Hãng Lê Bảo Minh <span class="price-sale">2,750,000 VNĐ </span></p> </div>
-			<div class="row"><span class="price-stock"><s>5,000,000 VNĐ</s> <span class="price-down">-55%</span><button type="button" class="btn btn-primary btn-pay"><i class="fas fa-shopping-cart"></i> Mua ngay</button></span></div>
+			<div class="row"><p class="title"><img class="icon-brand" src="images/icon.png"/><a href="#"><%=e.product.name%></a><span class="price-sale">  <%=e.product.price%>đ</span></p> </div>
+			<div class="row"><span class="price-stock"><s><%=e.product.list_price%>đ</s> <span class="price-down">-<%=e.discount_percent%>%</span><a href="#"><button type="button" class="btn btn-primary btn-pay"><i class="fas fa-shopping-cart"></i> Mua ngay</button></a></span></div>
 		 
 			</div>
 			
 		</div>
 				
 </div>
+<% }) %>
+<%}%>
  
-<div class="text-center"><button class="btn btn-primary btn-sx" type="button"> <i class="fas fa-chevron-circle-down"></i> Xem thêm</button></div>
+<div class="text-center"><button class="btn btn-primary btn-sx btn-load-more" type="button"> <i class="fas fa-chevron-circle-down"></i> Xem thêm</button></div>
  
 </div>
 </div>
@@ -313,15 +260,18 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
 $(function() {
+ 
   $('input[id="from"]').daterangepicker({
     singleDatePicker: true,
-    showDropdowns: true,
-    minYear: 1901
+		showDropdowns: true,
+		minYear: 2018
+   
   });
   $('input[id="to"]').daterangepicker({
     singleDatePicker: true,
-    showDropdowns: true,
-    minYear: 1999
+		showDropdowns: true,
+		minYear: 2018
+ 
   });
 });
 </script>

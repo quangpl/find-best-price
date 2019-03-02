@@ -27,7 +27,7 @@ function getDataProducts(perPage,from,to,callback) {
     callback(data);
   });
 }
-router.post('/', (req, res) => {
+router.post('/getList', (req, res) => {
   let perPage=20;
   // let from=1548614905
   // let to=1553798905;
